@@ -1,0 +1,28 @@
+{%extends  'main.html'%}
+
+{%block content%}
+<h1>hello {{request.user.client.first_name}}</h1>
+<form action="" method="post">
+    {%csrf_token%}
+    <div>
+      <h2>transfer to</h2>
+      <select class="form-select" aria-label="Default select example" name="transferTo">
+        {%for client in clients%}
+        <option value="{{client.id}}">{{client.first_name}} {{client.last_name}}</option>
+        {%endfor%}
+      </select>
+
+    </div>
+
+      <div class="mb-3">
+        <label for="" class="form-label">title</label>
+        <input type="text" class="form-control" id="" placeholder="Example : paying bills" name="title">
+      </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">amount</label>
+        <input type="number" class="form-control"  name="amount" placeholder="0.0$">
+      </div>
+      <input type="submit" value="transfer" class="btn btn-primary">
+</form>
+{%endblock%}

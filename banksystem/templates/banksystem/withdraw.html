@@ -1,0 +1,14 @@
+{%extends  'main.html'%}
+
+{%block content%}
+<h1>withdraw</h1>
+<form action="" method="post">
+    {%csrf_token%}
+
+    <div class="mb-3">
+        <label for="" class="form-label">amount</label>
+        <input type="text" name="amount" class="form-control" id="" placeholder="0.0$">
+      </div>
+      <input type="submit" value="withdraw" class="btn btn-primary">
+</form>
+{%endblock%}
